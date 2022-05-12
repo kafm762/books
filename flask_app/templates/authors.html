@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="styelesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"> 
+    <title>authors</title>
+</head>
+<body>
+    <div "container">
+        <div class="row">
+            <form action="/create/author" method="post" class="col-5 bg-light p-4 my-4 ml-3 text-dark">
+                <h2 class="text-center">New Author</h2>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                <input type="text" name="name" class="form-control">
+                </div>
+                <div>
+                    <input type="submit" value="Add Author" class="btn btn-primary btn-outline-dark">
+                </div>
+            </form>
+
+            <div class="col-6 w-50 ml-3 my-4">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="text-light bg-dark"><h2>Authors</h2> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for a in all_authors %}
+                    <tr>
+                        <td><a href="Author{{a.id}}" class="text-dark">{{a.name}}</a></td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <div class="container-footer">
+                <a href="/books">Add Book</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

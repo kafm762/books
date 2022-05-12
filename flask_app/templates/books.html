@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Books</title>
+</head>
+<body>
+    <div "container">
+        <div class="row">
+            <form action="/create/book" method="post" class="col-5 bg-light p-4 my-4 ml-3 text-dark">
+                <h2 class="text-center">New Book</h2>
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input type="text" name="title" class="form-control">
+                    <label for="num_of_pages">Number of Pages:</label>
+                    <input type="text" name="num_of_pages" class="form-control">
+                </div>
+                <div>
+                    <input type="submit" value="Add Book" class="btn btn-primary btn-outline-dark">
+                </div>
+            </form>
+            
+            <div class="col-6 w-50 ml-3 my-4">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="text-light bg-dark"><h2>Books</h2> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for b in all_books %}
+                    <tr>
+                        <td><a href="{{b.id}}" class="text-dark">{{b.title}}</a></td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div> 
+        </div>
+    </div>
+    <div class="ml-3">
+        <a href="/authors">Home</a>
+    </div>
+</body>
+</html>
